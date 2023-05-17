@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_home"
+    android:id="@+id/mobile_navigation">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.mvvm_hilt_paging_flow.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.mvvm_hilt_paging_flow.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_favourite"
+        android:name="com.example.mvvm_hilt_paging_flow.ui.favuorites.FavouriteFragment"
+        android:label="@string/title_favourite"
+        tools:layout="@layout/fragment_favourite">
+        <action
+            android:id="@+id/action_navigation_favourite_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.mvvm_hilt_paging_flow.ui.detail.DetailFragment"
+        android:label="@string/title_movie_details"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="movie"
+            app:argType="com.example.mvvm_hilt_paging_flow.domain.model.Movie"/>
+    </fragment>
+</navigation>
