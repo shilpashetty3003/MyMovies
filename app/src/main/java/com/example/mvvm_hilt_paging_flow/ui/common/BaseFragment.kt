@@ -19,5 +19,7 @@ abstract class BaseFragment<T:ViewBinding>: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    )= inflateBinding(inflater,container).apply { binding=this }.root
+    )=inflateBinding(inflater,container).apply {
+        binding=this
+    }.root
 }

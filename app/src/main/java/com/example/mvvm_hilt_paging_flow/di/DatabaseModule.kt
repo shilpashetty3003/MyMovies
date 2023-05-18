@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase
 import com.example.mvvm_hilt_paging_flow.data.local.MovieDatabase
 import com.example.mvvm_hilt_paging_flow.data.repository.movies.MovieLocalDataSource
 import com.example.mvvm_hilt_paging_flow.data.repository.popular.PopularMoviesLocalDataSource
+import com.example.mvvm_hilt_paging_flow.data.repository.search.SearchLocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,5 +36,11 @@ object DatabaseModule {
     @Singleton
     fun provideDetailMovieDataSource(database:MovieDatabase):MovieLocalDataSource{
         return database.movieDetailDao()
+    }
+
+    @Provides
+    @Singleton
+    fun searchMovieDataSource(database:MovieDatabase):SearchLocalDataSource{
+        return database.searchDetailDao()
     }
 }

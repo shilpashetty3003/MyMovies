@@ -4,8 +4,10 @@ import com.example.mvvm_hilt_paging_flow.BuildConfig
 import com.example.mvvm_hilt_paging_flow.data.remote.API_BASE_URL
 import com.example.mvvm_hilt_paging_flow.data.remote.MovieService
 import com.example.mvvm_hilt_paging_flow.data.remote.popular.PopularMovieService
+import com.example.mvvm_hilt_paging_flow.data.remote.search.SearchService
 import com.example.mvvm_hilt_paging_flow.data.repository.movies.MovieRemoteDataSource
 import com.example.mvvm_hilt_paging_flow.data.repository.popular.PopularMoviesRemoteDataSource
+import com.example.mvvm_hilt_paging_flow.data.repository.search.SearchRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +19,6 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 
@@ -67,4 +68,10 @@ object NetworkModule {
     @Singleton
     fun provideMovieDetailRemoteSource(retrofit: Retrofit): MovieRemoteDataSource =
         retrofit.create(MovieService::class.java)
+
+
+    @Provides
+    @Singleton
+    fun SearchMovieRemoteSource(retrofit: Retrofit): SearchRemoteDataSource =
+        retrofit.create(SearchService::class.java)
 }

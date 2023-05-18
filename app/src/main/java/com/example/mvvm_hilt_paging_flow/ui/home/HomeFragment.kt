@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -34,6 +35,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val homeViewModel: HomeViewModel by viewModels()
     private val homeAdapter by ViewLifeCycleDelegates { HomeAdapter(::onMovieClicked) }
 
+    private val movie:Movie?=null
+
+    var name:String="SSS"
+
+
     override fun inflateBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -42,6 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         initUI()
         listenOnMoviesPagedData()
@@ -64,6 +71,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun initUI() = with(binding) {
+
+
 
         recyclerView.apply {
             setHasFixedSize(true)
